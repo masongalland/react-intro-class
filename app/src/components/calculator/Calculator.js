@@ -46,7 +46,9 @@ class Calculator extends Component {
                 break;
         }
         this.setState({ display: String(result) });
-
+    }
+    clearDisplay(){
+        this.setState({ display: '0', temp: 0, operator: '', resetDisplay: false });
     }
     render() {
         return (
@@ -59,7 +61,7 @@ class Calculator extends Component {
                         <span className="total"> { this.state.display }</span>
                     </div>
 
-                    <div className="btn clear"></div>
+                    <div className="btn clear" onClick={ () => this.clearDisplay() }></div>
 
                     <div className="btn zero" onClick={ () => this.setDisplay('0') }></div>
                     <div className="btn one" onClick={ () => this.setDisplay('1') }></div>
